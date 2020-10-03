@@ -16,7 +16,7 @@ public class SecureSparkServicesApp {
         Gson gson = new Gson();
         port(getPort());
         //API: secure(keystoreFilePath, keystorePassword, truststoreFilePath,truststorePassword);
-        secure("keystores/ecikeystore.p12", "Hola123", null, null);
+        secure("keystores/ecikeystore.p12", "pansito", null, null);
 
         before("/auth/*", (req, res) -> {
             if (req.session().isNew()) {
@@ -47,6 +47,7 @@ public class SecureSparkServicesApp {
             res.status(200);
             return null;
         });
+        get("/prueba", ((request, response) -> HttpsClient.getInfo()));
         post("/login", ((req, res) -> {
             req.session(true);
             AuthenticationDetails authenticationDetails = gson.fromJson(req.body(), AuthenticationDetails.class);
@@ -54,7 +55,6 @@ public class SecureSparkServicesApp {
                 req.session().attribute("User", authenticationDetails.getUsername());
                 req.session().attribute("Logged", true);
                 return "si";
-//                System.out.println((char[]) req.session().attribute("Logged"));
 
             } else {
                 return "Error : Usuario o contraseña incorrecta";
@@ -66,7 +66,7 @@ public class SecureSparkServicesApp {
         if (System.getenv("PORT") != null) {
             return Integer.parseInt(System.getenv("PORT"));
         }
-        return 5000; //returns default port if heroku-port isn't set (i.e. on localhost) }
+        return 9001;
     }
 
     public static String sha256(String base) {

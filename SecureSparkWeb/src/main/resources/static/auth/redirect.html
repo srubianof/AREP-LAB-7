@@ -1,24 +1,18 @@
-<html><head><title>You just got trolled!!!</title>
-<style>
-a {font-family:Arial;color:white;font-size:50;}
-td {font-family:Arial;color:white;font-size:10;}
-html {font-family:Arial;color:white;font-size:50;}
-input,select {font-family:Arial;font-size:25;}
-</style>
-</head><body background="bg.png"><audio id="vedrinicemusica" autoplay="" loop="">
-  <source src="trollface.m4a" type="audio/mp4">
-  Your browser does not support the audio element.
-</audio>
-<!--<audio autoplay loop>
-      <source src="trololo.mp3">
-</audio>-->
-
-<font color="white">
-</font><center><font color="white"><b>You just got trolled!!!</b><br>
-<img src="trollfaceONE.png"><br>
-<b>Problem?</b><br>
-<input type="submit" value="Click here to turn Music off!" onclick="alert('Trololololololololol');">
-<br>
-<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FTrollFacedk%2F215525321801413&amp;layout=button_count&amp;show_faces=true&amp;width=155&amp;action=like&amp;font=verdana&amp;colorscheme=dark&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:155px; height:21px;" allowtransparency="true"></iframe><br><!--<a href="https://www.twitch.tv/fjallefar"><b>>> Fjallefar p&aring; Twitch!?! <<</b></a><br></center><h3><P ALIGN="right"><!--By <a href=http://www.EpicFail.dk><i>EpicFail.dk</i></a>--><p></p>
-</font>
-</center></body></html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/apiRequest.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body onload="apiRequests.getInfo()">
+  <h3> Ejemplo de conexion entre 2 servidores seguros.</h3>
+  <section>
+    <h2> Respuesta del otro servidor: </h2>
+    <div id="pruebaConexion">
+    </div>
+  </section>
+  </body>
+</html>

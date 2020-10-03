@@ -1,0 +1,12 @@
+version: '3'
+services:
+  login:
+    image: srubianof/secureapp:login
+    container_name: LoadBalancerAPP
+    ports:
+      - "9001:6000"
+  logic:
+    image: srubianof/secureapp:logic 
+    ports:
+      - "9002:6000"
+  

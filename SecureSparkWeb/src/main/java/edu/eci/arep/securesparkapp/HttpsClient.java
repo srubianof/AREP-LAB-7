@@ -2,6 +2,7 @@ package edu.eci.arep.securesparkapp;
 
 import java.io.*;
 import java.net.*;
+import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.security.cert.CertificateException;
 import java.util.*;
@@ -10,8 +11,8 @@ import javax.net.ssl.*;
 public class HttpsClient {
 
     public static void start() {
-        File trustStoreFile = new File("keystores/myTrustStore");
-        char[] trustStorePassword = "Hola123".toCharArray();
+        File trustStoreFile = new File("keystores/myTrustStoreLogic");
+        char[] trustStorePassword = "pansito".toCharArray();
         // Load the trust store, the default type is "pkcs12", the alternative is "jks"
         KeyStore trustStore = null;
         TrustManagerFactory tmf = null;
@@ -31,19 +32,12 @@ public class HttpsClient {
             e.printStackTrace();
         }
     }
-
-    public static String readURL(String sitetoread) throws IOException {
-
-        // Crea el objeto que representa una URL2
-        URL siteURL = new URL("https");
-        // Crea el objeto que URLConnection
-        HttpURLConnection urlConnection = (HttpURLConnection) siteURL.openConnection();
-        // Obtiene una vista del mapa como conjunto de pares <K,V>
-        // para poder navegarlo
-        urlConnection.setRequestMethod("GET");
-        urlConnection.setDoOutput(true);
-
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), "utf-8"))) {
+    public static String getInfo() throws IOException {
+        URL url = new URL("https://ec2-54-160-248-141.compute-1.amazonaws.com:9002/prueba");
+        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+        con.setRequestMethod("GET");
+        con.setDoOutput(true);
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream(), "utf-8"))) {
             StringBuilder response = new StringBuilder();
             String responseLine = null;
             while ((responseLine = br.readLine()) != null) {

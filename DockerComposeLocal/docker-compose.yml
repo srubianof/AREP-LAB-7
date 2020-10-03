@@ -1,0 +1,18 @@
+version: '3'
+services:
+  login:
+    build:
+      context: ../SecureSparkWeb
+      dockerfile: Dockerfile
+    image: srubianof/secureapp:login
+    container_name: LoadBalancerAPP
+    ports:
+      - "9001:6000"
+  logic:
+    build:
+      context: ../SecureSparkAppLogic
+      dockerfile: Dockerfile
+    image: srubianof/secureapp:logic 
+    ports:
+      - "9002:6000"
+  
