@@ -47,7 +47,9 @@ public class SecureSparkServicesApp {
             res.status(200);
             return null;
         });
-        get("/prueba", ((request, response) -> HttpsClient.getInfo()));
+        get("/prueba", ((request, response) -> {
+            return HttpsClient.getInfo();
+        }));
         post("/login", ((req, res) -> {
             req.session(true);
             AuthenticationDetails authenticationDetails = gson.fromJson(req.body(), AuthenticationDetails.class);

@@ -12,8 +12,8 @@ apiRequests = (function () {
                 }
             );
         },
-        getInfo: function (){
-            axios.get('/prueba').then(res=>{
+        getInfo: function () {
+            axios.get('/prueba').then(res => {
                 const prueba = $("#pruebaConexion");
                 prueba.empty();
                 prueba.append(res.data);
