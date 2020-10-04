@@ -10,7 +10,7 @@ import static spark.Spark.*;
 public class App {
     public static void main(String[] args) {
         port(getPort());
-        secure("keystores/ecikeystore.p12", "pansito", "keystores/myTrustStoreLogin", "pansito");
+        secure("keystores/ecikeystore.p12", "Hola123", "keystores/myTrustStoreLogin", "Hola123");
         get("/prueba", (req, res) -> "<p>Funciona correctamente</p>");
     }
     static int getPort() {

@@ -12,7 +12,7 @@ public class HttpsClient {
 
     public static void start() {
         File trustStoreFile = new File("keystores/myTrustStoreLogic");
-        char[] trustStorePassword = "pansito".toCharArray();
+        char[] trustStorePassword = "Hola123".toCharArray();
         // Load the trust store, the default type is "pkcs12", the alternative is "jks"
         KeyStore trustStore = null;
         TrustManagerFactory tmf = null;

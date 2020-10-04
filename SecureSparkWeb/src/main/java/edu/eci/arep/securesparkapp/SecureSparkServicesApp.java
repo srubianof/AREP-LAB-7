@@ -16,7 +16,7 @@ public class SecureSparkServicesApp {
         Gson gson = new Gson();
         port(getPort());
         //API: secure(keystoreFilePath, keystorePassword, truststoreFilePath,truststorePassword);
-        secure("keystores/ecikeystore.p12", "pansito", null, null);
+        secure("keystores/ecikeystore.p12", "Hola123", null, null);
 
         before("/auth/*", (req, res) -> {
             if (req.session().isNew()) {

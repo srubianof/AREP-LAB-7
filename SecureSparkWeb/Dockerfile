@@ -9,4 +9,4 @@ COPY /target/dependency /usrapp/bin/dependency
 RUN mkdir keystores
 COPY keystores/* /usrapp/bin/keystores/
 
-CMD ["java","-cp","./classes:./dependency/*","edu.eci.arep.App"]
+CMD ["java","-cp","./classes:./dependency/*","edu.eci.arep.securesparkapp.SecureSparkServicesApp"]
